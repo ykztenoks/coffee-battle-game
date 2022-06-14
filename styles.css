@@ -1,0 +1,23 @@
+body {
+  background-color: brown;
+}
+
+.box {
+  display: grid;
+  width: 1014px;
+  height: 636px;
+  background: rgba(173, 148, 126, 0.91);
+}
+
+.smallBox {
+  border: 2px solid black;
+  display: grid;
+}
+
+.smallBox.textBox {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column: 2 / -1;
+  justify-items: center;
+  align-content: space-around;
+}
