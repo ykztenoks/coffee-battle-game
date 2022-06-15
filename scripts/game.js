@@ -14,5 +14,18 @@ class FrenchPress {
   }
 }
 
-module.exports = Espresso;
-module.exports = FrenchPress;
+class Chemex {
+  constructor(name) {
+    this.name = name;
+    this.hp = 110;
+    this.strength = 12;
+  }
+}
+
+class TurkishCezve {
+  constructor(name) {
+    this.name = name;
+    this.hp = 150;
+    this.strength = 7;
+  }
+}
