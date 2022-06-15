@@ -17,6 +17,9 @@ const startScreen = document.querySelector("#startScreen");
 const battleScreen = document.querySelector("#battleScreen");
 const startButton = document.querySelector("#startBtn");
 const nextButton = document.querySelector("#next");
+const tryAgainBtn = document.querySelector("#tryAgain");
+const content = document.querySelector("#content");
+const winScreen = document.querySelector("#winScreen");
 
 let player1;
 let player2;
@@ -40,6 +43,10 @@ function endGame(loser, winner) {
   nextButton.setAttribute("class", "show");
   round += 1;
   player2 = charArr[round];
+  if (round === 3) {
+    content.setAttribute("class", "hidden");
+    winScreen.setAttribute("class", "show");
+  }
 }
 
 function endTurn() {
@@ -85,7 +92,7 @@ function setPlayer(character) {
 function lightAttack(attacker, receiver) {
   let damage = attacker.strength;
   receiver.hp -= damage;
-  printAttack(`${receiver.name} took ${damage} points of damage!`);
+  printStatus(`${receiver.name} took ${damage} points of damage!`);
   lightAttackBtn.disabled = true;
   heavyAttackBtn.disabled = true;
   setTimeout(() => {
@@ -105,7 +112,7 @@ function heavyAttack(attacker, receiver) {
   receiver.hp -= damage;
   lightAttackBtn.disabled = true;
   heavyAttackBtn.disabled = true;
-  printAttack(`${receiver.name} took ${damage} point of damage!`);
+  printStatus(`${receiver.name} took ${damage} points of damage!`);
   setTimeout(() => {
     if (receiver.hp > 0) {
       opponentAttack();
@@ -121,18 +128,18 @@ function opponentAttack() {
   if (rng === 0 || rng === 1) {
     let damage = player2.strength;
     player1.hp -= damage;
-    printAttack(`${player1.name} took ${damage} point of damage!`);
+    printStatus(`${player1.name} took ${damage} points of damage!`);
   }
   if (rng === 2) {
     let dmgMultiplier = Math.random() * 3;
     let damage = Math.floor(player2.strength * dmgMultiplier);
     player1.hp -= damage;
-    printAttack(`${player1.name} took ${damage} points of damage!`);
+    printStatus(`${player1.name} took ${damage} points of damage!`);
   }
 }
 
 //called when attack occurs for turn info
-function printAttack(text) {
+function printStatus(text) {
   consoleText.textContent = text;
   player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
   player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
@@ -142,7 +149,8 @@ function printAttack(text) {
   }
   if (player1.hp <= 0) {
     player1Box.textContent = `${player1.name}: 0HP`;
-    endGame(player1, player2);
+    consoleText.textContent = "You lose! Try again!";
+    tryAgainBtn.setAttribute("class", "show");
   }
 }
 
