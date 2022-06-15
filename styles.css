@@ -1,0 +1,10 @@
+body {
+  display: grid;
+}
+.hidden {
+  display: none;
+}
+
+.show {
+  display: grid;
+}

@@ -12,37 +12,110 @@ const consoleText = document.querySelector("#console");
 const heavyAttackBtn = document.querySelector("#heavyAttack");
 const player1Box = document.querySelector(".player1Box");
 const player2Box = document.querySelector(".player2Box");
-const buttons = document.querySelectorAll(".btn");
+const atkButton = document.querySelector("#atkBtn");
+const startScreen = document.querySelector("#startScreen");
+const battleScreen = document.querySelector("#battleScreen");
+const startButton = document.querySelector("#startBtn");
+const nextButton = document.querySelector("#next");
 
 let player1;
 let player2;
+const charArr = [chemex, espresso, turkishcezve, french];
+let round = 0;
+const frenchHP = 120;
+const espressoHP = 100;
+const chemexHP = 110;
+const turkishHP = 150;
 
-function setPlayer(character) {
-  player1 = character;
-  if (player1 === chemex) {
-    player2 = setPlayer(espresso);
-  }
+function startGame() {
+  startScreen.setAttribute("class", "hidden");
+  battleScreen.setAttribute("class", "show");
+  player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
+  player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
 }
 
+function endGame(loser, winner) {
+  consoleText.textContent = `${loser.name} has gone cold! ${winner.name} makes the best coffee!`;
+  atkButton.setAttribute("class", "hidden");
+  nextButton.setAttribute("class", "show");
+  round += 1;
+  player2 = charArr[round];
+}
+
+function endTurn() {
+  atkButton.setAttribute("class", "show");
+  nextButton.setAttribute("class", "hidden");
+
+  if (player1 === espresso) {
+    player1.hp = espressoHP;
+  }
+  if (player1 === chemex) {
+    player1.hp = chemexHP;
+  }
+  if (player1 === turkishcezve) {
+    player1.hp = turkishHP;
+  }
+  if (player1 === french) {
+    player1.hp = frenchHP;
+  }
+  player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
+  player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
+}
+
+// set player1 char based on clicked button, setting also random char for player2
+function setPlayer(character) {
+  player1 = character;
+  startButton.addEventListener("click", () => startGame());
+  if (character === chemex) {
+    charArr.splice(0, 1);
+  }
+  if (character === espresso) {
+    charArr.splice(1, 1);
+  }
+  if (character === turkishcezve) {
+    charArr.splice(2, 1);
+  }
+  if (character === french) {
+    charArr.splice(3, 1);
+  }
+  player2 = charArr[0];
+}
+
+// lightAttack button activates the func, giving damage equal to char strength, also calls opponent attack and prints info on screen
 function lightAttack(attacker, receiver) {
   let damage = attacker.strength;
   receiver.hp -= damage;
   printAttack(`${receiver.name} took ${damage} points of damage!`);
+  lightAttackBtn.disabled = true;
+  heavyAttackBtn.disabled = true;
   setTimeout(() => {
-    opponentAttack();
+    if (receiver.hp > 0) {
+      opponentAttack();
+    }
+    lightAttackBtn.disabled = false;
+    heavyAttackBtn.disabled = false;
   }, 2000);
 }
 
+//heavyAttack button activates the func, giving damage equal to char strength multiplied by RNG,
+//also calls opponent attack and prints attack info on screen
 function heavyAttack(attacker, receiver) {
   let dmgMultiplier = Math.random() * 3;
   let damage = Math.floor(attacker.strength * dmgMultiplier);
   receiver.hp -= damage;
+  lightAttackBtn.disabled = true;
+  heavyAttackBtn.disabled = true;
   printAttack(`${receiver.name} took ${damage} point of damage!`);
   setTimeout(() => {
-    opponentAttack();
+    if (receiver.hp > 0) {
+      opponentAttack();
+    }
+    lightAttackBtn.disabled = false;
+    heavyAttackBtn.disabled = false;
   }, 2000);
 }
 
+//called when player1 attacks using RNG to choose attack type
 function opponentAttack() {
   let rng = Math.floor(Math.random() * 3);
   if (rng === 0 || rng === 1) {
@@ -58,21 +131,22 @@ function opponentAttack() {
   }
 }
 
+//called when attack occurs for turn info
 function printAttack(text) {
   consoleText.textContent = text;
   player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
   player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
   if (player2.hp <= 0) {
     player2Box.textContent = `${player2.name}: 0HP`;
+    endGame(player2, player1);
   }
   if (player1.hp <= 0) {
-    player1Box.textContent = 0;
+    player1Box.textContent = `${player1.name}: 0HP`;
+    endGame(player1, player2);
   }
 }
 
-// player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
-// player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
-
+nextButton.addEventListener("click", () => endTurn());
 frenchbtn.addEventListener("click", () => setPlayer(french));
 turkishbtn.addEventListener("click", () => setPlayer(turkishcezve));
 espressobtn.addEventListener("click", () => setPlayer(espresso));
