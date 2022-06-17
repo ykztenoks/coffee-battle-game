@@ -151,6 +151,21 @@ body {
   font-family: "Press Start 2P", cursive;
   cursor: pointer;
 }
+
+#next {
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+}
+
+#tryAgain {
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+}
+
 .btns.espresso {
   position: absolute;
   width: 154px;

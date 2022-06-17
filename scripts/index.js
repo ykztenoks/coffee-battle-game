@@ -46,7 +46,7 @@ function startGame() {
 function endGame(loser, winner) {
   consoleText.textContent = `${loser.name} has gone cold! ${winner.name} makes the best coffee!`;
   atkButton.setAttribute("class", "hidden");
-  nextButton.setAttribute("class", "show");
+  nextButton.removeAttribute("class", "hidden");
   round += 1;
   player2 = charArr[round];
   if (round === 3) {
@@ -56,7 +56,7 @@ function endGame(loser, winner) {
 }
 
 function endTurn() {
-  atkButton.setAttribute("class", "show");
+  atkButton.removeAttribute("class", "hidden");
   nextButton.setAttribute("class", "hidden");
 
   if (player1 === espresso) {
