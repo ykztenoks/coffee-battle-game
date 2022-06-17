@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Press+Start+2P&display=swap");
+
 body {
   display: grid;
+  background: #517664;
+  font-family: "Press Start 2P", cursive;
+  font-size: 25px;
 }
 .hidden {
   display: none;
@@ -7,4 +12,213 @@ body {
 
 .show {
   display: grid;
+}
+
+#content {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 960px;
+  height: 570px;
+  left: 276px;
+  top: 28px;
+  background: #de9e36;
+  border: 27px solid #000000;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.espresso.sprite {
+  position: absolute;
+  width: 174px;
+  height: 165px;
+  left: -235px;
+  top: -30px;
+  border: 9px inset #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.turkish.sprite {
+  position: absolute;
+  width: 174px;
+  height: 165px;
+  left: -2px;
+  top: -30px;
+  border: 9px inset #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.chemex.sprite {
+  position: absolute;
+  width: 174px;
+  height: 165px;
+  left: 227px;
+  top: -30px;
+  border: 9px inset #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.french.sprite {
+  position: absolute;
+  width: 174px;
+  height: 165px;
+  left: 449px;
+  top: -30px;
+  border: 9px inset #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.smallBox {
+  position: absolute;
+  width: 791px;
+  height: 142px;
+  left: 250px;
+  top: 134px;
+}
+.smallBox.textBox {
+  position: absolute;
+  width: 909px;
+  height: 163px;
+  left: -1px;
+  top: 328px;
+  background: #5e3023;
+  border-top: 26px solid #000000;
+}
+
+.logo {
+  width: 400px;
+  position: absolute;
+  height: 400px;
+  left: 256px;
+  top: -150px;
+}
+
+#startBtn {
+  position: absolute;
+  width: 267px;
+  height: 48px;
+  left: 315px;
+  top: 389px;
+  border: 9px inset #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.howtoplay {
+  font-size: 10px;
+  position: absolute;
+  width: 226px;
+  top: 269px;
+  left: -216px;
+}
+
+.btns {
+  cursor: pointer;
+  background-color: #d1efb5;
+  font-family: "Press Start 2P", cursive;
+  font-size: 12px;
+  -webkit-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -7px 7px 3px -3px rgba(0, 0, 0, 0.75);
+}
+
+.startButton {
+  font-family: "Press Start 2P", cursive;
+  cursor: pointer;
+}
+.btns.espresso {
+  position: absolute;
+  width: 154px;
+  height: 43px;
+  left: -216px;
+  top: 175px;
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+}
+
+.btns.turkish {
+  position: absolute;
+  width: 154px;
+  height: 43px;
+  left: 19px;
+  top: 175px;
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+}
+
+.btns.chemex {
+  position: absolute;
+  width: 154px;
+  height: 43px;
+  left: 248px;
+  top: 175px;
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+}
+
+.btns.french {
+  position: absolute;
+  width: 154px;
+  height: 43px;
+  left: 469px;
+  top: 175px;
+  border: 9px groove #d1efb5;
+  border-radius: 3px 0px 0px 0px;
+}
+
+.player1 {
+  position: absolute;
+  width: 298px;
+  height: 228px;
+  top: 204px;
+  left: 15px;
+}
+
+.player2 {
+  position: absolute;
+  width: 310px;
+  height: 100px;
+  top: -10px;
+  left: 565px;
+}
+
+.player1Sprite {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 222px;
+  left: 233px;
+}
+
+.player2Sprite {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 85px;
+  left: 650px;
 }

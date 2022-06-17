@@ -9,38 +9,68 @@
   </head>
   <body>
     <div id="content" class="box">
-      <div id="startScreen">
-        <button id="startBtn"><h2>START!</h2></button>
+      <div id="startScreen" class="screenStart">
+        <img class="logo" src="./images/logo.png" alt="logo" />
+        <button id="startBtn" class="startButton"><h2>START!</h2></button>
         <div class="smallBox">
-          <button id="espresso">The Espresso!</button>
-          <button id="turkish">Turkish Cezve!</button>
-          <button id="chemex">Chemex!</button>
-          <button id="french">French Press!</button>
+          <img
+            class="espresso sprite"
+            src="./images/espresso.jpg"
+            alt="espressosprite"
+            \
+          />
+          <button class="btns espresso" id="espresso">The Espresso!</button>
+          <img
+            class="turkish sprite"
+            src="./images/turkish.jpg"
+            alt="turkishsprite"
+          />
+          <button class="btns turkish" id="turkish">Turkish Cezve!</button>
+          <img
+            class="chemex sprite"
+            src="./images/chemex.jpg"
+            alt="chemexsprite"
+          />
+          <button class="btns chemex" id="chemex">Chemex!</button>
+          <img
+            class="french sprite"
+            src="./images/frenchpress.jpg"
+            alt="frenchsprite"
+          />
+          <button class="btns french" id="french">French Press!</button>
+          <aside class="howtoplay">
+            <h3>HOW TO PLAY?</h3>
+            <p>
+              Choose your favorite coffee type to battle against the others and
+              prove you're the coffee king!
+            </p>
+          </aside>
         </div>
       </div>
       <div id="battleScreen" class="hidden">
-        <div class="smallBox player2Box">Player 2</div>
-
-        <div class="smallBox player1Box">Player 1</div>
+        <p id="player2Box" class="player2">Player 2</p>
+        <img src="" alt="player2Sprite" id="player2Sprite" />
+        <p id="player1Box" class="player1">Player 1</p>
+        <img src="" alt="player1Sprite" id="player1Sprite" />
 
         <div class="smallBox textBox">
           <p id="console"></p>
-          <div id="atkBtn">
+          <section id="atkBtn">
             <button id="lightAttack" class="btn">Light Attack</button>
 
             <button id="heavyAttack" class="btn">Heavy Attack</button>
             <button onClick="window.location.reload();" id="giveUp" class="btn">
               Give up
             </button>
-          </div>
+          </section>
           <button
             onClick="window.location.reload();"
             id="tryAgain"
-            class="hidden"
+            class="hidden btn"
           >
             TRY AGAIN!
           </button>
-          <button id="next" class="hidden">NEXT BATTLE!</button>
+          <button id="next" class="hidden btn">NEXT BATTLE!</button>
         </div>
       </div>
     </div>

@@ -10,8 +10,8 @@ const chemexbtn = document.querySelector("#chemex");
 const lightAttackBtn = document.querySelector("#lightAttack");
 const consoleText = document.querySelector("#console");
 const heavyAttackBtn = document.querySelector("#heavyAttack");
-const player1Box = document.querySelector(".player1Box");
-const player2Box = document.querySelector(".player2Box");
+const player1Box = document.querySelector("#player1Box");
+const player2Box = document.querySelector("#player2Box");
 const atkButton = document.querySelector("#atkBtn");
 const startScreen = document.querySelector("#startScreen");
 const battleScreen = document.querySelector("#battleScreen");
@@ -20,6 +20,8 @@ const nextButton = document.querySelector("#next");
 const tryAgainBtn = document.querySelector("#tryAgain");
 const content = document.querySelector("#content");
 const winScreen = document.querySelector("#winScreen");
+const player1Sprite = document.querySelector("#player1Sprite");
+const player2Sprite = document.querySelector("#player2Sprite");
 
 let player1;
 let player2;
@@ -29,6 +31,10 @@ const frenchHP = 120;
 const espressoHP = 100;
 const chemexHP = 110;
 const turkishHP = 150;
+const espressoSprite = "./images/espressoBattle.png";
+const frenchSprite = "./images/frenchBattle";
+const turkishSprite = "./images/turkishBattle";
+const chemexSprite = "./images/chemexBattle";
 
 function startGame() {
   startScreen.setAttribute("class", "hidden");
