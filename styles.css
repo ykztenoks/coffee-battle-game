@@ -83,12 +83,16 @@ body {
 }
 .smallBox.textBox {
   position: absolute;
+  display: flex;
   width: 909px;
   height: 163px;
   left: -1px;
   top: 328px;
   background: #5e3023;
   border-top: 26px solid #000000;
+  align-items: center;
+
+  flex-direction: column;
 }
 
 .logo {

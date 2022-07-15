@@ -53,7 +53,7 @@ function endGame(loser, winner) {
   player2 = charArr[round];
 
   if (round === 3) {
-    winnerSprite.src = player1Sprite.src;
+    winnerSprite.setAttribute("src", player1Sprite.src);
     content.setAttribute("class", "hidden");
     winScreen.setAttribute("class", "show");
   }
@@ -83,32 +83,32 @@ function setPlayer(character) {
   startButton.addEventListener("click", () => startGame());
   if (character === chemex) {
     charArr.splice(0, 1);
-    player1Sprite.src = chemexSprite;
+    player1Sprite.setAttribute("src", chemexSprite);
   }
   if (character === espresso) {
     charArr.splice(1, 1);
-    player1Sprite.src = espressoSprite;
+    player1Sprite.setAttribute("src", espressoSprite);
   }
   if (character === turkishcezve) {
     charArr.splice(2, 1);
-    player1Sprite.src = turkishSprite;
+    player1Sprite.setAttribute("src", turkishSprite);
   }
   if (character === french) {
     charArr.splice(3, 1);
-    player1Sprite.src = frenchSprite;
+    player1Sprite.setAttribute("src", frenchSprite);
   }
   player2 = charArr[0];
 }
 
 function setP2Sprite() {
   if (player2 === chemex) {
-    player2Sprite.src = chemexSprite;
+    player2Sprite.setAttribute("src", chemexSprite);
   } else if (player2 === espresso) {
-    player2Sprite.src = espressoSprite;
+    player2Sprite.setAttribute("src", espressoSprite);
   } else if (player2 === turkishcezve) {
-    player2Sprite.src = turkishSprite;
+    player2Sprite.setAttribute("src", turkishSprite);
   } else if (player2 === french) {
-    player2Sprite.src = frenchSprite;
+    player2Sprite.setAttribute("src", frenchSprite);
   }
 }
 
