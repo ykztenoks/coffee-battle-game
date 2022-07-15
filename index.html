@@ -51,8 +51,9 @@
         <p id="player2Box" class="player2">Player 2</p>
         <img src="" alt="player2Sprite" id="player2Sprite" />
         <p id="player1Box" class="player1">Player 1</p>
-        <img src="" alt="player1Sprite" id="player1Sprite" />
-
+        <div class="player1Sprite">
+          <img src="" alt="player1Sprite" id="player1Sprite" />
+        </div>
         <div class="smallBox textBox">
           <p id="console"></p>
           <section id="atkBtn">
@@ -74,8 +75,15 @@
         </div>
       </div>
     </div>
-    <div id="winScreen" class="hidden">
-      <h2>CONGRATS!!! You're the king of the coffees!</h2>
+    <div class="hidden" id="winScreen">
+      <div>
+        <h2>CONGRATS!!! You're the king of the coffees!</h2>
+        <img src="./images/crown.png" alt="crown" id="crown" />
+        <img src="" alt="winnersprite" id="winnerSprite" />
+        <button onClick="window.location.reload();" id="playAgain" class="btn">
+          Play again!
+        </button>
+      </div>
     </div>
     <script src="./scripts/game.js"></script>
     <script src="./scripts/index.js"></script>

@@ -6,13 +6,6 @@ body {
   font-family: "Press Start 2P", cursive;
   font-size: 25px;
 }
-.hidden {
-  display: none;
-}
-
-.show {
-  display: grid;
-}
 
 #content {
   box-sizing: border-box;
@@ -222,18 +215,42 @@ body {
   left: 565px;
 }
 
-.player1Sprite {
+#player1Sprite {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 222px;
-  left: 233px;
+  width: 250px;
+  height: 250px;
+  top: -10px;
+  left: 50px;
 }
 
-.player2Sprite {
+#player2Sprite {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 85px;
-  left: 650px;
+  width: 250px;
+  height: 250px;
+  top: 86px;
+  left: 597px;
+}
+
+#winnerSprite {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 200px;
+  left: 250px;
+}
+
+#crown {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 57px;
+  left: 333px;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: grid;
 }

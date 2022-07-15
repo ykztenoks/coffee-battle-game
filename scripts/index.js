@@ -22,6 +22,7 @@ const content = document.querySelector("#content");
 const winScreen = document.querySelector("#winScreen");
 const player1Sprite = document.querySelector("#player1Sprite");
 const player2Sprite = document.querySelector("#player2Sprite");
+const winnerSprite = document.querySelector("#winnerSprite");
 
 let player1;
 let player2;
@@ -31,16 +32,17 @@ const frenchHP = 120;
 const espressoHP = 100;
 const chemexHP = 110;
 const turkishHP = 150;
-const espressoSprite = "./images/espressoBattle.png";
-const frenchSprite = "./images/frenchBattle";
-const turkishSprite = "./images/turkishBattle";
-const chemexSprite = "./images/chemexBattle";
+const espressoSprite = "../images/espressoBattle.png";
+const frenchSprite = "../images/frenchBattle.png";
+const turkishSprite = "../images/turkishBattle.png";
+const chemexSprite = "../images/chemexBattle.png";
 
 function startGame() {
   startScreen.setAttribute("class", "hidden");
   battleScreen.setAttribute("class", "show");
   player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
   player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
+  setP2Sprite();
 }
 
 function endGame(loser, winner) {
@@ -49,7 +51,9 @@ function endGame(loser, winner) {
   nextButton.removeAttribute("class", "hidden");
   round += 1;
   player2 = charArr[round];
+
   if (round === 3) {
+    winnerSprite.src = player1Sprite.src;
     content.setAttribute("class", "hidden");
     winScreen.setAttribute("class", "show");
   }
@@ -61,18 +65,16 @@ function endTurn() {
 
   if (player1 === espresso) {
     player1.hp = espressoHP;
-  }
-  if (player1 === chemex) {
+  } else if (player1 === chemex) {
     player1.hp = chemexHP;
-  }
-  if (player1 === turkishcezve) {
+  } else if (player1 === turkishcezve) {
     player1.hp = turkishHP;
-  }
-  if (player1 === french) {
+  } else if (player1 === french) {
     player1.hp = frenchHP;
   }
   player2Box.textContent = `${player2.name}: ${player2.hp}HP`;
   player1Box.textContent = `${player1.name}: ${player1.hp}HP`;
+  setP2Sprite();
 }
 
 // set player1 char based on clicked button, setting also random char for player2
@@ -81,20 +83,36 @@ function setPlayer(character) {
   startButton.addEventListener("click", () => startGame());
   if (character === chemex) {
     charArr.splice(0, 1);
+    player1Sprite.src = chemexSprite;
   }
   if (character === espresso) {
     charArr.splice(1, 1);
+    player1Sprite.src = espressoSprite;
   }
   if (character === turkishcezve) {
     charArr.splice(2, 1);
+    player1Sprite.src = turkishSprite;
   }
   if (character === french) {
     charArr.splice(3, 1);
+    player1Sprite.src = frenchSprite;
   }
   player2 = charArr[0];
 }
 
-// lightAttack button activates the func, giving damage equal to char strength, also calls opponent attack and prints info on screen
+function setP2Sprite() {
+  if (player2 === chemex) {
+    player2Sprite.src = chemexSprite;
+  } else if (player2 === espresso) {
+    player2Sprite.src = espressoSprite;
+  } else if (player2 === turkishcezve) {
+    player2Sprite.src = turkishSprite;
+  } else if (player2 === french) {
+    player2Sprite.src = frenchSprite;
+  }
+}
+
+// lightAttack button activates the func, giving damage equal to char strength, also calls opponent attack
 function lightAttack(attacker, receiver) {
   let damage = attacker.strength;
   receiver.hp -= damage;
