@@ -32,10 +32,10 @@ const frenchHP = 120;
 const espressoHP = 100;
 const chemexHP = 110;
 const turkishHP = 150;
-const espressoSprite = "../images/espressoBattle.png";
-const frenchSprite = "../images/frenchBattle.png";
-const turkishSprite = "../images/turkishBattle.png";
-const chemexSprite = "../images/chemexBattle.png";
+const espressoSprite = "../images/espressobattle.png";
+const frenchSprite = "../images/frenchbattle.png";
+const turkishSprite = "../images/turkishbattle.png";
+const chemexSprite = "../images/chemexbattle.png";
 
 function startGame() {
   startScreen.setAttribute("class", "hidden");
